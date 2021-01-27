@@ -1,21 +1,27 @@
-ul {
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 200px;
-    background-color: #F1F1F1;
+    overflow: hidden;
+    background-color: #F0F234;
 }
-li a {
+.navbar li {
+    float: right;
+    border-right: 1px solid #cb9;
+}
+.navbar li a {
     display: block;
     color: #000;
-    padding: 8px 16px;
+    text-align: center;
+    padding: 10px 40px;
     text-decoration: none;
 }
-li a:hover {
-    background-color: #555;
-    color: white;
+.navbar li a:hover:not(.active) {
+    background-color: #309;
 }
 .active {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #4CBE50;
 }
