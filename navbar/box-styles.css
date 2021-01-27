@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.page {
+    width 600px;
+    margin: 0 auto;
+}
+.button {
+    color: #FFF;
+    background-color: #5995DA;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+
+    width: 200px;
+    box-sizing: border-box;
+    margin: 20px auto;
+}
+.call-to-action {
+    font-style: italic;
+    background-color: #EEB75A;
+}
