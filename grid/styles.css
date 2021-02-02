@@ -1,4 +1,7 @@
-
+* {
+  margin: 0;
+  padding: 0;
+}
 html {
 /*
   min-height: 100%;
@@ -9,19 +12,29 @@ html {
 */
   background-color: #7C9082;
 }
+#topMenu {
+    grid-area: header;
+    padding: 0;
+    margin: 0 auto;
+}
 body {
   display: grid;
   grid-template-areas:
     "header header header header"
     "margin1 nav article margin2"
     "footer footer footer footer";
-  grid-template-rows: 40px 1fr 40px;
-  grid-template-columns: 1fr 25% auto 1fr;
+  grid-template-rows: auto 1fr 40px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
   height: 100vh;
-  margin: 0;
+  margin: 0 auto;
+  padding: 0;
+  justify-content:0;
+  align-items: center center;
+  align-self: center center;
+  align-text: center;
   }
-header, footer, article, nav, div {
+header, footer, article, div {
   padding: 20px;
   background: #EDEEC0;
   color: #A7A284;
@@ -29,17 +42,23 @@ header, footer, article, nav, div {
 #margin1, #margin2 {
     background-color:transparent;
 }
+.portraitImage img {
+    max-width: 90%;
+}
+/*
 #pageHeader {
   grid-area: header;
 
   display: grid;
   grid-template-areas:
     "buttonBrand button1 button2 button3 button4";
-  grid-template-columns: 60px 40px 40px 40px 40px;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(5, auto);
   justify-content: start;
-  align-content:stretch;
+  align-content:center;
 
 }
+*/
 #pageFooter {
   grid-area: footer;
 }
@@ -51,14 +70,19 @@ header, footer, article, nav, div {
 
   display: grid;
   grid-template-areas:
-    "portrait content"
-    "image-container image-container";
-  grid-template-rows: 40% auto;
-  grid-template-columns: 40% auto;
+    "portrait"
+    "content"
+    "image-container"
+    "image-container";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 5px;
   }
 .picture {
     width: 500px;
+}
+a {
+    text-decoration: none;
 }
 ul {
     list-style: none;
@@ -91,6 +115,19 @@ nav .div {
   grid-template-rows: 1fr 10px; 
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 5px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 0;
+
+}
+#image1 img, #image2 img, #image3 img, #caption1, #caption2, #caption3 {
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    max-width: 200px;
 }
 .image1 {
     grid-area: image1;
@@ -126,20 +163,66 @@ a {
 header a .active {
     color: #EDEEC0
 }
-.button .active {
+.div .active {
     background-color: #A7A284;
     color: #EDEEC0;
 }
-/*
+.button1, .button2, .button3, .button4, .buttonBrand {
+    padding: 10px;
+    margin: 0 auto;
+    align-text: center;
+    justify-content: start;
+    text-decoration: none;
+}
+
 @media all and (max-width: 575px) {
 body {
     grid-template-areas:
+            "margin1"
+            "margin2"
             "header"
             "article"
             "nav"
             "footer";
-    grid-template-rows: 80px 1fr 70px 1fr 70px;
+    grid-template-rows: 0px, 0px, repeat(4, auto); 
     grid-template-columns: 1fr; 
 }
+#margin1, #margin2 {
+    padding: 0;
+    margin: 0;
+    max-height: 0px;
+    max-width: 0px;
 }
-*/
+#mainNav {
+  grid-template-areas:
+    "portrait
+    content
+    image container";
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 0;
+}
+.image-container {
+  grid-template-areas:
+    "image1"
+    "caption1"
+    "image2"
+    "caption2"
+    "image3"
+    "caption3";
+  grid-template-rows: repeat(6 1fr); 
+  grid-template-columns: 1fr;
+
+}
+#pageFooter {
+    font-size: 0.75em;
+    text-align: start;
+    justify-content: start;
+}
+
+#image1, #image2, #image3, #caption1, #caption2, #caption3, .portraitImage img, #mainArticle > picture > img {
+    max-width: 90%;
+}

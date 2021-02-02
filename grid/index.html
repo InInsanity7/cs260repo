@@ -6,52 +6,79 @@
         content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
     <title>UrbanCapture Photography</title>
     <link rel='stylesheet' href='styles.css'/>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Your title here</title>
   </head>
 
   <body>
-    <header id="pageHeader">
-        <a class='button buttonBrand' href='index.html'>UrbanCapture</a>
-        <a class='button button1 active' href='index.html'>Home</a>
-        <a class='button button2' href='portfolio.html'>Portfolio</a>
-        <a class='button button3' href='reviews.html'>Reviews</a>
-        <a class='button button4' href='about.html'>About Me</a>
-    </header>
+      <div id='topMenu'>
+        <nav class="navbar navbar-expand-lg style='background-color: #EDEEC0; text-color: #A7A284; color: #A7A284; margin: 0 auto; padding: 0; align-items: center;'">
+  <a class="navbar-brand" href="index.html" style='background-color: #EDEEC0; text-color: #A7A284; color: #A7A284;'>UrbanCapture</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html" style='text-decoration: none; text-color: #A7A284; color: #A7A284'>Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="portfolio.html" style='text-decoration: none; text-color: #A7A284; color: #A7A284'>Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="reviews.html" style='text-decoration: none; text-color: #A7A284; color: #A7A284'>Reviews</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="about.html" style='text-decoration: none; text-color: #A7A284; color: #A7A284'>About Me</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+      </div>
 
+
+<!--
+    <header id="pageHeader">
+        <div class='buttonBrand'><a href='index.html'>UrbanCapture</a></div>
+        <div class='button1 active'><a href='index.html'>Home</a></div>
+        <div class='button2'><a href='portfolio.html'>Portfolio</a></div>
+        <div class='button3'><a href='reviews.html'>Reviews</a></div>
+        <div class='button4'><a href='about.html'>About Me</a></div>
+    </header>
+-->
     <article id="mainArticle">
         <picture>
-            <source media='(min-wdith: 576px)'
-                    srcset='images/wave.jpg'/>
-            <source media='(max-width: 575px)'
-                    srcset='images/wave-small.jpg'/>
             <img src='images/wave-small.jpg'/>
         </picture>
     </article>
-    <nav id="mainNav">
+    <div id="mainNav">
       <div id='portrait'>
-          <img class='portraitImage' src='images/handsaw-small.jpg' style='max-width: 300px'/>
+          <img class='portraitImage' src='images/handsaw-small.jpg'/>
       </div>
+
       <div id='content'>
           <p>Empowering urban art and fabrication production</p>
           <p><em>I'm your foundation for:</em></p>
-          <ul>
-              <li>Brand creation</li>
-              <li>An advertising kickstart</li>
-              <li>Public outreach impact</li>
-              <li>Marketplace distinction</li>
-          </ul>
       </div>
       <div id='image-container'>
-        <div id='image1'>Image</div>
-        <div id='caption1'>Caption</div>
-        <div id='image2'>Image</div>
-        <div id='caption2'>Caption</div>
-        <div id='image3'>Image</div>
-        <div id='caption3'>Caption</div>
+          <div id='image1'><img src='images/anvil-med.jpg'/></div>
+        <div id='caption1'>Brand Creation</div>
+        <div id='image2'><img src='images/sparks.jpg'/></div>
+        <div id='caption2'>Kickstart Advertising</div>
+        <div id='image3'><img src='images/fire-drip-small.jpg'/></div>
+        <div id='caption3'>Market Distinction</div>
       </div>
-    </nav>
+    </div>
     <footer id="pageFooter">https://github.com/BYU-CS-260-Winter-2021/lab-1-photography-website-InInsanity7</footer>
     <div id='margin1'></div>
     <div id='margin2'></div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 
 </html>
