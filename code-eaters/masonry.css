@@ -1,0 +1,112 @@
+* {
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.page {
+  background-color: #18181d;
+}
+
+.footer {
+  align-self: center;
+  background-color: #18181d;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  color: #EAF4F4;
+  text-decoration: none;
+}
+.footer > a {
+    align-self:center;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    background-color: transparent;
+    margin: 0 auto;
+    justify-content: center;
+    color: #EAF4F4;
+}
+
+/* COLUMN CHANGES */
+.ml {
+  column-count: 2;
+  column-gap: 0;
+}
+
+@media (min-width: 625px) {
+  .ml {
+    column-count: 4;
+  }
+}
+@media (min-width: 1200px) {
+  .ml {
+    column-count: 6;
+  }
+}
+/* FORMATTING */
+.ml-pnl {
+  break-inside: avoid;
+  padding: 5px;
+  background-color: #3c3c42;
+  padding: 0px;
+  border-radius: 10px;
+  margin: 10px 5px 5px 10px;
+}
+.ml-pnl:hover {
+  transform: scale(1.1);
+  transition: all ease 500ms;
+}
+
+.ml-pnl_content {
+  padding: 0px 10px 10px 10px;
+  border-radius: 0px 0px 10px 10px;
+  overflow: hidden;
+  text-align: center;
+  background-color: #3c3c42;
+  color: #EAF4F4;
+
+}
+
+.ml-pnl_content-img {
+  max-width: 100%;
+  padding: 10;
+  background-color: #3c3c42;
+  border-radius: 10px 10px 0px 0px;
+}
+.intro {
+    font-weight: bold;
+    font-size: 3em;
+    display: flex;
+    background-color: transparent;
+    color: #EAF4F4;
+    align-self:center;
+    text-align: center;
+    justify-content:center;
+    background-color: #18181d;
+}
+.description {
+    font-size: 1.25em;
+    display: flex;
+    background-color: transparent;
+    color: #EAF4F4;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+    background-color: #18181d;
+}
+footer > a {
+    display: flex;
+    background-color: transparent;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+/* Color Mapping */
+/* $deep-gray = 28282d
+ * $cool-gray = 2c2c32
+ * $stone-gray = 2d2d2c
+ * $gray = 252526
+ * $slate-gray = 1e1e1e
+ * $light-gray = 595a5b
+/*# sourceMappingURL=masonry.css.map */
