@@ -20,11 +20,27 @@
 //I've looked over all of the api's pretty in depth. Hopefully by the time you get back onto the project, I'll have them implemented pretty well.
 
 
+//API id
+let idEdamam = '5d24488a';
+
+//API Keys
+let keyEdamam = '174f7baadbf4fc84b1a7b7cf73ba7666';
+let keyCalendar = '?api_key=7604e7a55b2d34db7fbdcbdbc25fc170b77c43b6';
 
 
+//Host
+let hostBored = "http://www.boredapi.com/api/activity/";
+let hostEdamam = "http://recipepuppy.com/api/";
+let hostCalendar = "https://calendarific.com/api/v2/";
 
+//Paths
+let pathCalendarHolidays = "holidays";
+let pathCalendarCountries = "countries";
 
-let host = "http://recipepuppy.com/api/";
+//Parameters - default
+let paramCalendarCountries = "&country=US";
+let paramCalendarYear = "&year=";
+let paramCalendarMonth = "&month="
 
 
 
@@ -34,51 +50,50 @@ let host = "http://recipepuppy.com/api/";
 document.getElementById("weatherSubmit").addEventListener("click", function(event) {
     //prevent empty submit
     event.preventDefault();
+
+    //Get userInput
     const value = encodeURIComponent(document.getElementById("weatherInput").value);
     if (value === "") {
         return;
     }
 
-    //FIXME testing
-    console.log(value);
 
-    const url = host + value;
+    //EDAMAM
 
-    //FIXME reference
-        // ",US&units=imperial" + "&APPID=f75947b71dcbbaa9114d001f2ad96abc";
+    const urlEdamam = hostEdamam +
 
 
 
+//    //CALENDAR
+
+//    let userYear = "2021"
+//    let userMonth = 1;
+
+//    paramCalendarMonth += userMonth.toString(); //default FIXME if statement
+//    paramCalendarMonth += "," + (userMonth + 1).toString();
+//    paramCalendarYear += "2021"; //default FIXME if statement
+//    const urlCalendar = hostCalendar + pathCalendarHolidays + keyCalendar
+//        + paramCalendarCountries + paramCalendarYear;
+//        // + paramCalendarMonth;
+
+    console.log(url);
     fetch(url)
         .then(function(response) {
             return response.json();
         }).then(function(json) {
 
             console.log(json);
-            //formatting API response
-            // let results = "";
-
-//            //FIXME a for instance
-//            results += '<h2>Weather in ' + json.name + "</h2>";
-
-//            //icon - FIXME array for instance
-//            for (let i=0; i < json.weather.length; i++) {
-//                results += '<img src="http://openweathermap.org/img/w/'
-//                    + json.weather[i].icon + '.png"/>';
-//            }
-
-//            //weather basics
-//            results += "<p>"
-//            for (let i=0; i < json.weather.length; i++) {
-//                results += json.weather[i].main
-//                if (i !== json.weather.length - 1)
-//                    results += ", "
-//            }
-            // results += "</p>";
-
-                        // document.getElementById("weatherResults").innerHTML = results;
+                         // document.getElementById("weatherResults").innerHTML = results;
         })
         .catch((error) => {console.error(error);} );
+
+
+
+
+
+
+
+
 
 //    // Fetch forecast
 //    const url = host + imagePath + input /*+ parameters*/ + subscriptionKey;
@@ -99,6 +114,14 @@ document.getElementById("weatherSubmit").addEventListener("click", function(even
 
 //        })
 //        .catch((error) => {console.error(error);} );
+
+
+
+
+
+
+
+
 
 });
 
