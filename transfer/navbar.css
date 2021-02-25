@@ -1,0 +1,33 @@
+    .navbar {
+        background-color: #3c3c42;
+        border: none;
+        margin-bottom: 0px;
+    }
+    
+    .container-fluid {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100%;
+        font-size: larger;
+        background-color: #3c3c42;
+    }
+    
+    .navbar-inverse {
+        opacity: none;
+        background-color: #3c3c42;
+    }
+    
+    .nabar-collapse {
+        box-shadow: none;
+        background-color: #3c3c42;
+    }
+    
+    .navbar-toggle {
+        border: none;
+    }
+    
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+    }

@@ -1,0 +1,39 @@
+/* COLUMN CHANGES */
+
+.ml {
+  column-count: 1;
+  column-gap: 0;
+}
+@media (min-width: 768px) {
+  .ml {
+    column-count: 2;
+  }
+}
+@media (min-width: 1200px) {
+  .ml {
+    column-count: 3;
+  }
+}
+
+/* FORMATTING */
+
+.ml-pnl {
+  break-inside: avoid;
+  padding: 5px;
+}
+.ml-pnl__content {
+  padding: 10px;
+  border-radius: 10px;
+  overflow:hidden;
+}
+.ml-pnl__content--img {
+    max-width: 100%;
+    padding: 0;
+}
+
+
+
+
+
+
+/* Color Mapping */

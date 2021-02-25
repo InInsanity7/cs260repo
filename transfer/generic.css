@@ -1,0 +1,48 @@
+body {
+    background-color: #18181d;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #9d9d9d;
+}
+.list-inline .list-inline-item {
+    color: #9d9d9d;
+}
+.navbar {
+    background-color: #3c3c42;
+    border: none;
+    margin-bottom: 0px;
+}
+
+.container-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    font-size: larger;
+    background-color: #3c3c42;
+}
+
+.navbar-inverse {
+    opacity: none;
+    background-color: #3c3c42;
+}
+
+.nabar-collapse {
+    box-shadow: none;
+    background-color: #3c3c42;
+}
+
+.navbar-toggle {
+    border: none;
+}
+footer {
+    padding: 50px 0px 0px 0px;
+}
+/* Color Mapping */
+/* $deep-gray = 28282d
+ * $cool-gray = 2c2c32
+ * $stone-gray = 2d2d2c
+ * $gray = 252526
+ * $slate-gray = 1e1e1e
+ * $light-gray = 595a5b
+/*# sourceMappingURL=masonry.css.map */

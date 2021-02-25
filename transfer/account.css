@@ -1,0 +1,121 @@
+.account{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #18181d;
+}
+
+.account-container{
+    display: inline-block;
+    background-color: #18181d;
+    flex-direction: column;
+    padding: 2%;
+    margin: 0 auto;
+   
+
+}
+
+.account-options {
+    display: flex;
+    flex-direction: column;
+    border-width: 3px;
+    border-style: none;
+    }
+
+.menu-section {
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    border-style: none;
+    border-width: 3px;
+    padding: 10px;
+    max-width: 200px;
+    min-width: 165px;
+    color: #9d9d9d;
+    font-size: 12px;
+}
+
+.menu-section > a {
+    text-decoration: none;
+    color: #9d9d9d;
+}
+
+.profile-image{
+    
+
+
+}
+.account-options{
+    display: flex;
+    margin: 0px;
+    background-color: #000000;
+    color: #9d9d9d;
+    font-size: 12px;
+    
+}
+.account-options > ul {
+    padding: 10px 40px 0px 10px;
+    text-align: right;
+    border-width: 0px;
+    border-style: none;
+}
+.account-options > li {
+    border-style: none;
+    border-width: 0px;
+    padding:5px;
+}
+.menu-selection-active{
+    background-color: #9d9d9d;
+    padding: 5px;
+    color: #fff !important;
+}
+
+.menu-selection-option {
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+@media only screen and (max-width: 550px) {
+ .account{
+     flex-direction: column;
+ }
+ .account-container {
+ }
+ 
+.account-options{
+    display: flex;
+    margin: 0px auto;
+    background-color: transparent;
+    font-size: 11px;
+}
+.account-options > ul {
+    padding: 10px 0px 0px 10px;
+    text-align: center;
+    border-width: 0px;
+    border-style: none;
+}
+.account-options > li {
+    border-style: none;
+    border-width: 0px;
+    padding:5px;
+}
+.menu-section{
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    text-align: center;
+    border-style: none;
+    border-width: 3px;
+    padding: 10px;
+    margin: 0px auto;
+    font-size: 11px;
+    order: 2;
+}
+.menu-section > ul {
+    padding: 0px;
+}
+}
