@@ -1,4 +1,5 @@
 //API id
+
 let idEdamam = "&app_id=5d24488a";
 
 //API Keys
@@ -88,7 +89,7 @@ document.getElementById("submitInfo").addEventListener("click", function(event) 
 
             for (let i = 0; i < json.response.holidays.length; i++) {
                 if ((json.response.holidays[i].date.datetime.month === month ||
-                        json.response.holidays[i].date.datetime.month === month + 1) &&
+                    json.response.holidays[i].date.datetime.month === month + 1) &&
                     holiday.length < 12) {
                     holiday.push(json.response.holidays[i].name);
                     holidayDate.push(json.response.holidays[i].date.iso);
@@ -98,66 +99,49 @@ document.getElementById("submitInfo").addEventListener("click", function(event) 
         .catch((error) => { console.error(error); });
 
     //fetch BORED
-    for (let i = 0; i < 12; i++) {
-        //fetch FOODISH
+    for (let i = 0; i < 13; i++) {
+
         fetch(urlBored)
             .then(function(response) {
                 return response.json();
             }).then(function(json) {
-
+if (i < 12) {
                 console.log(json);
                 dateActivity.push(json.activity);
+}
+else {
+                //Build out the start of the grid
+                results += /*Header Div*/
+                    "<div class=\"header\">" +
+                    /*Intro Div*/
+                    "<div class=\"intro\"> Date Ideas:</div>" +
+                    /*Description Div*/
+
+                    "</div>" +
+                    /*Page Div*/
+                    "<div class=\"page\">" +
+                    /*ml Div*/
+                    "<div class=\"ml\">";
+
+                //Use For-Loop to interate through 12 images
+                for (let i = 0; i < 12; i++) {
+                    results += /*ml-pnl div*/ "<div class=\"ml-pnl\">" +
+                        /*img -- FIX ME: Change URL to pull from API*/
+                        "<img class=\"ml-pnl_content-img\" src=\"" + imageArray[i] + "\"/>" +
+                        /*img -- FIX ME: Change content to pull from API*/
+                        "<div class=\"ml-pnl_content\">Spontaneous activity: <p>" + dateActivity[i]
+                        + "</p></div><div class=\"ml-pnl_content\">Reason to celebrate: " + holiday[i]
+                        + "</p></div></div>"
+                }
+
+                //Close the grid
+                results += "</div></div>"
+                document.getElementById("result").innerHTML = results;
+}
+
             })
             .catch((error) => { console.error(error); });
     }
-
-    //Build out the start of the grid
-    results += /*Header Div*/
-        "<div class=\"header\">" +
-        /*Page Div*/
-        "<div class=\"page\">" +
-        /*Intro Div*/
-        "<div class=\"intro\"> Date Ideas:</div>" +
-        /*Description Div*/
-        "</div>" +
-        /*ml Div*/
-        "<div class=\"ml\">";
-
-    //Use For-Loop to interate through 12 images
-    for (let i = 0; i < 12; i++) {
-        results += /*ml-pnl div*/ "<div class=\"ml-pnl\">" +
-            /*img -- FIX ME: Change URL to pull from API*/
-<<<<<<< HEAD
-            "<img class=\"ml-pnl_content-img\" src=\"" + imageArray[i] + "\"/>" +
-            /*img -- FIX ME: Change content to pull from API*/
-            "<div class=\"ml-pnl_content\">Spontaneous activity: " + dateActivity[i] + "</div>"
-            "<div class=\"ml-pnl_content\">Reason to celebrate: " + holiday[i] + "</div></div>"
-=======
-            "<img class=\"ml-pnl_content-img\" src=\"" + imageArray[i] + "\">" +
-            /*img -- FIX ME: Change content to pull from API*/
-            "<div class=\"ml-pnl_content\">" + dateActivity[i] + "</div></div>";
->>>>>>> 442ba47b84b2884ad2c56692e4f9d429bc460dae
-    }
-
-    //Close the grid
-    results += "</div></div>"
-    document.getElementById("result").innerHTML = results;
-
-
-    //    //EDAMAM URL
-    //    const urlEdamam = hostEdamam + prmQuery + value + idEdamam + keyEdamam + prmEdamam;
-
-    //   //fetch EDAMAM
-    //    fetch(urlEdamam)
-    //        .then(function(response) {
-    //            return response.json();
-    //        }).then(function(json) {
-
-    //            console.log(json);
-    //                         // document.getElementById("weatherResults").innerHTML = results;
-    //        })
-    //        .catch((error) => {console.error(error);} );
-
 
 
 

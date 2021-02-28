@@ -95,37 +95,22 @@
 
 
                             <!--Javascript to Output the values for Price and Accessibility-->
-                            <script>
-                                var accessSlider = document.getElementById("myAccessibility");
-                                var accessOutput = document.getElementById("accessibilitySlide");
-                                accessOutput.innerHTML = accessSlider.value;
+                            <!-- <script> -->
+                            <!--     var input = document.getElementById('birthDate').value; -->
+                            <!--     var d = new Date(input); -->
 
-                                accessSlider.oninput = function() {
-                                    accessOutput.innerHTML = this.value;
-                                }
-                                var slider = document.getElementById("myPrice");
-                                var output = document.getElementById("priceSlide");
-                                output.innerHTML = slider.value;
+                            <!--     if (!!d.valueOf()) { -->
+                            <!--         year = d.getFullYear(); -->
+                            <!--         month = d.getMonth() + 1; -->
+                            <!         day = d.getDate(); -->
 
-                                slider.oninput = function() {
-                                    output.innerHTML = this.value;
-                                }
-
-                                var input = document.getElementById('birthDate').value;
-                                var d = new Date(input);
-
-                                if (!!d.valueOf()) {
-                                    year = d.getFullYear();
-                                    month = d.getMonth() + 1;
-                                    day = d.getDate();
-
-                                    console.log(year);
-                                    console.log(month);
-                                    console.log(day);
-                                } else {
-                                    // TODO 
-                                }
-                            </script>
+                            <!--         console.log(year); -->
+                            <!--         console.log(month); -->
+                            <!--         console.log(day); -->
+                            <!--     } else { -->
+                            <!--         // TODO --> 
+                            <!--     } -->
+                            <!-- </script> -->
 
                         </div>
                         <p></p>
@@ -141,7 +126,7 @@
 
                     <hr>
                     <p class="copyright text-muted top"><a href="#top" id="link-up">Back to the Top</a></p>
-                    <p class="copyright text-muted">www.cp2.cjtracy.net | Conner Tracy & Nathan Poston | <a class="copyright text-muted" href="https://github.com/TheCodeEaters/CP2-DateGenerator">github</a></p>
+                    <p class="copyright text-muted">www.cp2.candysoup.org | Conner Tracy & Nathan Poston | <a class="copyright text-muted" href="https://github.com/InInsanity7/cs260repo/tree/main/creativeproject2">github</a></p>
                     <div id="hidden-results" style="visibility: visible;"></div>
             </div>
         </div>

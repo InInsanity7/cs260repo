@@ -41,15 +41,15 @@
     column-gap: 0;
 }
 
-@media (min-width: 625px) {
+@media (min-width: 1000px) {
     .ml {
-        column-count: 2;
+        column-count: 2; !important
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     .ml {
-        column-count: 4;
+        column-count: 3; !important
     }
 }
 
@@ -85,7 +85,13 @@
     background-color: #9ea3a9;
     border-radius: 10px 10px 0px 0px;
 }
-
+.ml-pnl-content-img > img {
+    /* max-width: 100%; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%
+}
 .intro {
     font-weight: bold;
     font-size: 3em;
