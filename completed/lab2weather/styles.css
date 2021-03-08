@@ -1,0 +1,58 @@
+* {
+    align-self: center;
+    align-content:center;
+    display: flex;
+    flex-direction: column;
+    flex: stretch;
+}
+.page {
+    display: flex;
+    align-self: center;
+    background: #239090;
+    justify-content: center;
+}
+.title {
+    font-size: 2.25em;
+#fiveday {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+#weatherResults {
+        display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+/* #5day { */
+/* display: flex; */
+/* align-self: center; */
+/* } */
+
+/* #weatherResults { */
+
+/* display: flex; */
+/* align-self: center; */
+
+/* } */
+
+#weatherResults > .mainTemp {
+    flex-direction: row;
+}
+#weatherResults > .extras {
+    flex-direction: row;
+}
+#weatherResults > .time {
+    flex-direction: row;
+}
+
+.footer {
+    display: flex;
+    align-self: end;
+margin: 30px;
+}
+footer {
+   text-decoration: none;
+}
+#fiveday > .forecastCont {
+    flex-direction: row;
