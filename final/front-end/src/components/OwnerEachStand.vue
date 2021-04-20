@@ -9,13 +9,13 @@
     <p>{{user.firstName}} {{user.lastName}}: <a @click="logout">Logout <i class="fas fa-sign-out-alt"></i></a></p>
     <uploader :show="show" @close="close" @uploadFinished="uploadFinished" />
   </div> -->
-  
-    <div>
+
         <div class="editButtons">
-      <button v-show="photos.length > 0" @click="deletePhoto">Delete NFT</button>
+      <button v-if="photos.length > 0" @click="deletePhoto">Delete NFT</button>
       <button @click="toggleUpload">Add NFT Image</button>
-      <button v-show="photos.length > 0" @click="editPhoto(photo.title)">Edit NFT Information</button>
+      <button v-if="photos.length > 0" @click="editPhoto(photo.title)">Edit NFT Information</button>
         </div>
+    <div v-if="photos.length > 0">
       <div class="photoTitle">
         <p>Image name: {{photo.title}}</p>
       </div>
