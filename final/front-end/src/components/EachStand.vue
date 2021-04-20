@@ -199,6 +199,40 @@ p {
   border-color: #1d3557;
   border: 0.55em solid #1d3557;
 }
+.image button {
+    background-color: #1d3557;
+    margin: 0.55em 0.25em 0.55em 0.25em;
+    border: 0px;
+    padding: 0.5em 1.5em 0.5em 1.5em;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1em;
+    font-family: 'Work Sans', sans-serif;
+    color: #f1faee;
+}
+button {
+    background-color: #1d3557;
+    margin: 0.55em 0.25em 0.55em 0.25em;
+    border: 0px;
+    padding: 0.5em 1.5em 0.5em 1.5em;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1em;
+    font-family: 'Work Sans', sans-serif;
+    color: #f1faee;
+}
+
+.EachStand > .image > .arrows > button {
+    background-color: #1d3557;
+    margin: 0.55em 0.25em 0.55em 0.25em;
+    border: 0px;
+    padding: 0.5em 1.5em 0.5em 1.5em;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1em;
+    font-family: 'Work Sans', sans-serif;
+    color: #f1faee;
+}
 .bid {
     background-color: #b61926;
     margin: 0.55em 0 0.55em;

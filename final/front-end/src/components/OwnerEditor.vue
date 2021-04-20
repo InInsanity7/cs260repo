@@ -5,7 +5,7 @@
       <form class="pure-form" @submit.prevent="edit">
         <legend>Name your stand</legend>
         <fieldset>
-          <input v-model="title" placeholder="Title">
+          <input v-model="formTitle" placeholder="Title">
         </fieldset>
         <fieldset class="buttons">
           <button type="button" @click="close" class="pure-button">Close</button>
@@ -27,14 +27,23 @@ export default {
   },
   data() {
     return {
-      title: this.stand.title,
+      /* title: this.stand.title, */
+      formTitle: this.stand.title, 
       error: '',
     }
   },
-  watch: {
-      stand: function(val) {
-          this.title = val.title;
-      }
+  /* watch: { */
+  /*     title:function(val) { */
+  /*         this.formTitle = val; */
+  /*     }, */
+  /* }, */
+    computed: {
+      title: function() {
+          return this.stand.title;
+      },
+      /* formTitle:function() { */
+      /*     return this.title; */
+      /* }, */
   },
               
   methods: {
@@ -44,7 +53,7 @@ export default {
         async edit() {
       try {
         await axios.put("/api/stands/" + this.stand._id, {
-            title: this.title,
+            title: this.formTitle,
         });
         this.title = "";
         this.$emit('uploadFinished');

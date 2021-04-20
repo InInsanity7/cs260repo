@@ -1,7 +1,7 @@
 <template>
   <section class="marketplace">
     <div class="stand-container" v-for="stand in stands" v-bind:key="stand._id">
-      <button @click="editStand(stand.title)">Change stand name</button>
+     <button @click="editStand(stand.title)">Change stand name</button>
       <OwnerEditor :stand="stand" :show="show" @close="close" @uploadFinished="uploadFinished" />
       <p>Stand name: {{stand.title}}</p>
       <OwnerEachStand :stand="stand" />
@@ -54,6 +54,7 @@ export default {
     async uploadFinished() {
       this.show = 'false';
       this.$emit('getStands');
+      this.$forceUpdate();
     },
     close() {
       this.show = 'false';
