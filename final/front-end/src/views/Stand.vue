@@ -2,6 +2,7 @@
 <div class="home">
   <section class="marketplace">
     <div class="image">
+
       <div class="photoTitle">
         <p>{{photo.title}}</p>
       </div>
@@ -11,26 +12,37 @@
         <p class="photoName">{{photo.user.firstName}} {{photo.user.lastName}}</p>
       <p class="photoDate">{{formatDate(photo.created)}}</p>
       </div>
+      <div v-show="numPhotos > 1" class="arrows">
+      <button @click="prevPhoto"><i class="fas fa-arrow-left"></i></button>
+      <button @click="nextPhoto"><i class="fas fa-arrow-right"></i></button>
+      </div>
       <div class="bidding">
-      <p>Current bid: $X</p>
-      <button class="bid"><p>+$X</p></button>
+      <p v-if="photo.bidder">Last Bid: ${{photo.bid - photo.increment}} - <em>{{photo.bidder.firstName}} {{photo.bidder.lastName}}</em></p>
+        <button v-if="user" @click="putBid" class="bid"><p>Bid ${{photo.bid}}</p></button>
+      <button v-else class="bid"><p>Log in to Bid</p></button>
       </div>
 
       <br/>
-      <div class="comments-container">
+
+    <div class="comments-container">
+      <div v-if="comments.length > 0">
       <h4>Comments:</h4>
       <div class="comments" v-for="comment in comments" :key="comment._id">
         <p><strong>{{comment.user.firstName}} {{comment.user.lastName}}</strong>
         <em> - {{formatDate(comment.created)}}</em></p>
         <p>{{comment.message}}</p>
-        
       </div>
+      </div>
+
+      <div v-if="user">
         <div class="form">
             <textarea v-model="message" placeholder="Leave a comment here">
             </textarea>
         </div>
             <button class="post" @click="postComment">Post</button>
-        </div>
+      </div>
+    </div>
+
     </div>
   </section>
 </div>
@@ -41,25 +53,37 @@ import axios from 'axios';
 import moment from 'moment';
 
 export default {
-  name: 'Photo',
+  name: 'Stand',
   /* components: { */
   /* }, */
   data() {
     return {
       message: "",
+      stand: null,
+      photos: [],
+      numPhotos: '',
       photo: null,
+      atPhoto: 0,
       comments: [],
       error: '',
     }
   },
+  computed: {
+    user() {
+      return this.$root.$data.user;
+    }
+  },
     created() {
-    this.getComments();
-    this.getPhoto();
+    this.getStand();
+    /* this.getPhotos(); */
+    /* this.getComments(); */
   },
   methods: {
+
+    //COMMENTS
     async getComments() {
       try {
-        let response = await axios.get("/api/comments/" + this.$route.params.id);
+        let response = await axios.get("/api/comments/" + this.photo._id);
         this.comments = response.data;
       } catch (error) {
           this.error = "Couldn't get comments, cuz " + error;
@@ -67,7 +91,7 @@ export default {
     },
     async postComment() {
       try {
-        await axios.post("/api/comments/" + this.$route.params.id, {
+        await axios.post("/api/comments/" + this.photo._id, {
             message: this.message,
         });
         this.message = "";
@@ -76,14 +100,68 @@ export default {
           this.error = "Couldn't post comment, cuz " + error;
       }
     },
-    async getPhoto() {
+
+   //STAND 
+    async getStand() {
       try {
-        let response = await axios.get("/api/photos/" + this.$route.params.id);
-        this.photo = response.data;
+        let response = await axios.get("/api/stands/" + this.$route.params.id);
+        this.stand = response.data;
+        this.getPhotos();
       } catch (error) {
         this.error = error.response.data.message;
       }
     },
+
+    //PHOTO ITEMS
+    async getPhotos() {
+      try {
+        let response = await axios.get("/api/photos/one/" + this.$route.params.id);
+        this.photos = response.data;
+        this.getPhoto();
+        this.numPhotos = this.photos.length;
+        this.getComments();
+      } catch (error) {
+        this.error = error.response.data.message;
+      }
+    },
+
+    getPhoto() {
+        this.photo = this.photos[this.atPhoto];
+    },
+    nextPhoto() {
+        if (this.atPhoto === this.numPhotos - 1) {
+            this.atPhoto = 0;
+        } else {
+            this.atPhoto++;
+        }
+        this.comments.length = 0;
+        this.getPhotos();
+        this.$forceUpdate();
+    },
+    prevPhoto() {
+        if (this.atPhoto === 0) {
+            this.atPhoto = this.numPhotos - 1;
+        } else {
+            this.atPhoto--;
+        }
+        this.comments.length = 0;
+        this.getPhotos();
+        this.$forceUpdate();
+    },
+
+    async putBid() {
+        try {
+            this.photo.bid += this.photo.increment;
+            await axios.put("/api/photos/bid/" + this.photo._id, {
+                bid: this.photo.bid,
+            });
+            this.$forceUpdate();
+        } catch (error) {
+            this.error = "Bidding issues! Look: " + error;
+        }
+    },
+
+    //Misc
         formatDate(date) {
       if (moment(date).diff(Date.now(), 'days') < 15)
         return moment(date).fromNow();
@@ -98,6 +176,25 @@ export default {
 .home {
     justify-content: center;
     margin: 0 5% 0 5%;
+}
+
+.arrows {
+    justify-content: space-between;
+}
+
+.arrows button {
+    background-color: #1d3557;
+    color: #f1faee;
+    border-style: none;
+    margin: 0 1em 0 1em;
+    padding: 0 1em 0 1em;
+    border-radius: 3.5px;
+}
+
+.arrows button:hover {
+    background-color: #0d2547;
+    margin: 0 1em 0 1em;
+    padding: 0 1.1em 0 1.1em;
 }
 
 .photoInfo {

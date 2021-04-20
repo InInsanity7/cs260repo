@@ -128,4 +128,7 @@ input {
   background-color: #d9534f;
   color: #fff;
 }
+.pure-button {
+    background-color: #457b9d;
+}
 </style>

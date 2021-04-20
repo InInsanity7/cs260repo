@@ -5,7 +5,7 @@
         <router-link to="/"><i class="fas fa-shopping-basket"></i></router-link>
         </div>
       <div class="title">
-      <h1>The Bid Bazarre</h1>
+      <h1>NFT Bid Bazarre</h1>
       </div>
     <!--  <nav> -->
         <div class="user">
@@ -16,9 +16,8 @@
     <div class="view">
     <router-view />
     </div>
-    <!-- FIXME ****************************************************** -->
     <div class="footer">
-    <p>INSERT GITHUB REPO HERE!</p>
+    <a href="https://github.com/InInsanity7/cs260repo/tree/main/final">https://github.com/InInsanity7/cs260repo/tree/main/final</a>
     </div>
   </div>
 </template>
@@ -36,7 +35,7 @@
  */
 
 html {
-    background-color: #f1faee;
+    background-color: #fafafa;
 }
 
 body {
@@ -69,10 +68,23 @@ body {
   box-shadow: 0 0 0 0.7em #457b9d;
 }
 
+.footer a {
+    text-align:center;
+    color:#457b9d;
+    text-decoration: none;
+}
+.footer a:hover {
+    color:#457b9d;
+    text-decoration: none;
+}
+.footer {
+    padding-bottom: 10px;
+}
+
 .footer, .view {
   text-align: center;
   padding-top: 70px;
-  color: #f1faee;
+  color: #1d3557;
 }
 .home {
     grid-column: 1;
@@ -86,7 +98,6 @@ body {
 }
 .title {
     grid-column: 2;
-  color: #f1faee;
 }
 /* nav { */
 /*   display: border-box; */

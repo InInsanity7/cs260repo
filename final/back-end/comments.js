@@ -49,7 +49,7 @@ try {
 });
 
 // get comments
-router.get("/:photoID", validUser, async (req, res) => {
+router.get("/:photoID", async (req, res) => {
 try {
   let photo = await Photo.findOne({
      _id:req.params.photoID,

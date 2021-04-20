@@ -1,8 +1,8 @@
 <template>
-<transition v-if="show" name="modal">
+<transition v-if="editing === title" name="modal">
   <div class="modal-mask">
     <div class="modal-container">
-      <!-- <form v-if="newPhoto" class="pure-form" @submit.prevent="upload"> -->
+      <!-- <form v-if="newPhoto" class="pure-form" @submit.prevent="upload">
       <form class="pure-form" @submit.prevent="upload">
         <legend>Upload a picture</legend>
         <fieldset>
@@ -31,8 +31,8 @@
           <button type="button" @click="close" class="pure-button">Close</button>
           <button type="submit" class="pure-button pure-button-primary right" style="background-color: #457b9d;">Upload</button>
         </fieldset>
-      </form>
-      <!-- <form v-else class="pure-form" @submit.prevent="edit">
+      </form> -->
+      <form class="pure-form" @submit.prevent="edit">
         <legend>Edit your NFT information</legend>
         <fieldset>
           <input v-model="title" placeholder="Title">
@@ -50,7 +50,7 @@
           <button type="button" @click="close" class="pure-button">Close</button>
           <button type="submit" class="pure-button pure-button-primary right" style="background-color: #457b9d;">Change</button>
         </fieldset>
-      </form> -->
+      </form>
     </div>
   </div>
 </transition>
@@ -59,11 +59,11 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'Uploader',
+  name: 'Editor',
   props: {
     show: Boolean,
-    newPhoto: Boolean,
-    stand: Object,
+    editing: String,
+    photo: Object,
   },
   data() {
     return {
@@ -71,48 +71,73 @@ export default {
       description: '',
       bidVal: '',
       increment: '',
-      url: '',
-      file: null,
+      /* url: '', */
+      /* file: null, */
       error: '',
     }
   },
-  methods: {
-  fileChanged(event) {
-    this.file = event.target.files[0];
-    this.url = URL.createObjectURL(this.file);
+  watch: {
+      photo: function(val) {
+          this.title = val.title;
+          this.description = val.description;
+          this.bidVal = val.bid;
+          this.increment = val.increment;
+      }
   },
+              
+  methods: {
+  /* fileChanged(event) { */
+  /*   this.file = event.target.files[0]; */
+  /*   this.url = URL.createObjectURL(this.file); */
+  /* }, */
   close() {
-        this.file = null;
-        this.url = "";
-        this.title = "";
-        this.description = "";
-        this.bidVal = "";
-        this.increment = "";
+        /* this.file = null; */
+        /* this.url = ""; */
+        /* this.title = ""; */
+        /* this.description = ""; */
+        /* this.bidVal = ""; */
+        /* this.increment = ""; */
     this.$emit('close');
   },
-  chooseImage() {
-      this.$refs.fileInput.click()
-    },
-        async upload() {
-      try {
-        const formData = new FormData();
-        formData.append('photo', this.file, this.file.name);
-        formData.append('title', this.title);
-        formData.append('description', this.description);
-        formData.append('bid', this.bidVal);
-        formData.append('increment', this.increment);
-        await axios.post("/api/photos/" + this.stand._id, formData);
-        this.file = null;
-        this.url = "";
-        this.title = "";
-        this.description = "";
-        this.bidVal = "";
-        this.increment = "";
-        this.$emit('uploadFinished');
-      } catch (error) {
+  /* chooseImage() { */
+  /*     this.$refs.fileInput.click() */
+  /*   }, */
+
+  async edit() {
+    try {
+      await axios.put("/api/photos/" + this.photo._id, {
+          title: this.title,
+          description: this.description,
+          bid: this.bidVal,
+          increment: this.increment,
+      });
+      this.$emit('uploadFinished');
+    } catch (error) {
         this.error = "Error: " + error.response.data.message;
       }
-    },
+  },
+
+
+        /* async upload() { */
+      /* try { */
+        /* const formData = new FormData(); */
+        /* formData.append('photo', this.file, this.file.name); */
+        /* formData.append('title', this.title); */
+        /* formData.append('description', this.description); */
+        /* formData.append('bid', this.bidVal); */
+        /* formData.append('increment', this.increment); */
+        /* await axios.post("/api/photos/" + this.stand._id, formData); */
+        /* this.file = null; */
+        /* this.url = ""; */
+        /* this.title = ""; */
+        /* this.description = ""; */
+        /* this.bidVal = ""; */
+        /* this.increment = ""; */
+        /* this.$emit('uploadFinished'); */
+      /* } catch (error) { */
+        /* this.error = "Error: " + error.response.data.message; */
+      /* } */
+    /* }, */
 },
 
 }

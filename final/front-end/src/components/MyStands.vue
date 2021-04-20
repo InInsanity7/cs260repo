@@ -1,35 +1,36 @@
 <template>
 <div class="main">
   <div class="menu">
-    <p><a @click="toggleUpload"><i class="fas fa-image"></i></a></p>
-    <h2>{{user.firstName}} {{user.lastName}} <a @click="logout"><i class="fas fa-sign-out-alt"></i></a></h2>
-    <uploader :show="show" @close="close" @uploadFinished="uploadFinished" />
+    <p><button @click="toggleUpload">New Stand</button></p>
+    <p>{{user.firstName}} {{user.lastName}}</p>
+    <button @click="logout">Logout</button>
+    <OwnerUploader :show="show" @close="close" @uploadFinished="uploadFinished" />
   </div>
-  <marketplace :photos="photos" />
-  <p v-if="error">{{error}}</p>
+  <OwnerMarketPlace @getStands="getStands" :stands="stands" />
 </div>
 </template>
 
 <script>
 import axios from 'axios';
-import Uploader from '@/components/Uploader.vue';
-import Marketplace from '@/components/Marketplace.vue';
+import OwnerUploader from '@/components/OwnerUploader.vue';
+import OwnerMarketPlace from '@/components/OwnerMarketPlace.vue';
 
 export default {
   name: 'MyStands',
     components: {
-    Uploader,
-    Marketplace,
+    /* Uploader, */
+    OwnerMarketPlace,
+    OwnerUploader,
   },
   data() {
     return {
       show: false,
-      photos: [],
+      stands: [],
       error: '',
     }
   },
   created() {
-    this.getPhotos();
+    this.getStands();
   },
   computed: {
     user() {
@@ -39,7 +40,7 @@ export default {
   methods: {
     async uploadFinished() {
       this.show = false;
-      this.getPhotos();
+      this.getStands();
     },
     close() {
       this.show = false;
@@ -47,10 +48,10 @@ export default {
     toggleUpload() {
       this.show = true;
     },
-    async getPhotos() {
+    async getStands() {
       try {
-        this.response = await axios.get("/api/photos");
-        this.photos = this.response.data;
+        this.response = await axios.get("/api/stands/user");
+        this.stands = this.response.data;
       } catch (error) {
         this.error = error.response.data.message;
       }
@@ -71,9 +72,30 @@ export default {
 .menu {
   display: flex;
   justify-content: space-between;
+    /* color: #457b9d; */
+    color: #555;
 }
 
 .menu h2 {
   font-size: 14px;
+    /* color: #457b9d; */
+    color: #555;
 }
+.menu button {
+    background-color: #457b9d;
+    margin: 0.55em 0 0.55em;
+    border: 0px;
+    padding: 0.5em 1.5em 0.5em 1.5em;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1em;
+    font-family: 'Work Sans', sans-serif;
+    color: #f1faee;
+}
+.menu button:hover {
+    padding: 0.65em 1.75em 0.65em 1.75em;
+    background-color: #558bad;
+    
+}
+      
 </style>

@@ -1,7 +1,6 @@
 <template>
 <div class="home">
-  <marketplace :photos="photos" />
-  <p v-if="error">{{error}}</p>
+  <marketplace :stands="stands" />
 </div>
 </template>
 
@@ -16,18 +15,19 @@ export default {
   },
     data() {
     return {
-      photos: [],
+      stands: [],
+      
       error: '',
     }
   },
     created() {
-    this.getPhotos();
+    this.getStands();
   },
   methods: {
-    async getPhotos() {
+    async getStands() {
       try {
-        let response = await axios.get("/api/photos/all");
-        this.photos = response.data;
+        let response = await axios.get("/api/stands/");
+        this.stands = response.data;
       } catch (error) {
         this.error = error.response.data.message;
       }
@@ -35,3 +35,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.home {
+    color: #1d3557;
+}
+</style>
